@@ -1327,6 +1327,9 @@ begin
     end;
   end;
 
+  if bots_random_noteam.Value > 0 then
+    for k := 1 to bots_random_noteam.Value do
+      AddBotPlayer(RandomBot, 0);
   if bots_random_alpha.Value > 0 then
     for k := 1 to bots_random_alpha.Value do
       AddBotPlayer(RandomBot, 1);
