@@ -187,7 +187,9 @@ if(BUILD_SERVER)
   add_subdirectory(server)
 endif()
 
-set_property(TARGET GameNetworkingSockets PROPERTY CXX_STANDARD 17)
+if(BUILD_GNS)
+  set_property(TARGET GameNetworkingSockets PROPERTY CXX_STANDARD 17)
+endif()
 
 # Install step that does 3 things:
 # 1) Cleans binary directory by removing unnecessary files from compilation.
