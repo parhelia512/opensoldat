@@ -155,6 +155,10 @@ interface
   {$DEFINE DGL_LINUX}
 {$ENDIF}
 
+{$IFDEF FREEBSD}
+  {$DEFINE DGL_MAC}
+{$ENDIF}
+
 {$IFDEF DARWIN}  // Mac OS X and FPC
    {$DEFINE DGL_MAC}
 {$ENDIF}
