@@ -39,6 +39,9 @@ const
   {$IFDEF LINUX}
   STEAMLIB = 'libsteam_api.so';
   {$ENDIF}
+  {$IFDEF FREEBSD}
+  STEAMLIB = 'libsteam_api.so';
+  {$ENDIF}
   {$ELSE}
   {$IFDEF WINDOWS}
   STEAMLIB = 'GameNetworkingSockets.dll';
@@ -47,6 +50,9 @@ const
   STEAMLIB = 'libGameNetworkingSockets.dylib';
   {$ENDIF}
   {$IFDEF LINUX}
+  STEAMLIB = 'libGameNetworkingSockets.so';
+  {$ENDIF}
+  {$IFDEF FREEBSD}
   STEAMLIB = 'libGameNetworkingSockets.so';
   {$ENDIF}
   {$ENDIF}
