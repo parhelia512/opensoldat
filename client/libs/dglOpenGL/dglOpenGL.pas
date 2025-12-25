@@ -156,7 +156,7 @@ interface
 {$ENDIF}
 
 {$IFDEF FREEBSD}
-  {$DEFINE DGL_MAC}
+  {$DEFINE DGL_FREEBSD}
 {$ENDIF}
 
 {$IFDEF DARWIN}  // Mac OS X and FPC
@@ -15164,6 +15164,9 @@ begin
   Result := Pointer(LoadLibrary(Name));
   {$ENDIF}
   {$ENDIF}
+  {$IFDEF DGL_FREEBSD}
+  Result := Pointer(LoadLibrary(Name));
+  {$ENDIF}
 end;
 
 
@@ -15193,6 +15196,9 @@ begin
     Result := FreeLibrary(HMODULE(LibHandle));
     {$ENDIF}
 	{$ENDIF}
+    {$IFDEF DGL_FREEBSD}
+    Result := FreeLibrary(HMODULE(LibHandle));
+    {$ENDIF}
 end;
 
 
@@ -15237,6 +15243,9 @@ begin
   {$ENDIF}
 
   {$IFDEF DGL_MAC}
+    Result := GetProcAddress(HMODULE(LibHandle), ProcName);
+  {$ENDIF}
+  {$IFDEF DGL_FREEBSD}
     Result := GetProcAddress(HMODULE(LibHandle), ProcName);
   {$ENDIF}
 end;
